@@ -12,7 +12,7 @@ const cron = require("node-cron");
 
 // var upload = multer({ dest: "Upload_folder_name" })
 // If you do not want to use diskStorage then uncomment it
-
+app.use(express.static(path.join(__dirname, "uploads")));
 app.use(cors());
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
