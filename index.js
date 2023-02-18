@@ -134,6 +134,21 @@ app.get("/getImages", async (req, res, next) => {
   }
 });
 
+app.get("/delete", async (req, res, next) => {
+  try {
+    
+    const deleteData = await uploadModel.findByIdAndDelete({_id: req.query.id}).exec();
+    
+    if(deleteData){
+      res.send({ success: true, message: 'deleted' });
+      return
+    }
+    res.send({ success: false, data: 'Error' });
+  } catch (error) {
+    res.send({ success: false, message: error.message });
+  }
+});
+
 // Take any port number of your choice which
 // is not taken by any other process
 app.listen(8080, function (error) {
