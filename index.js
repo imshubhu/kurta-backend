@@ -10,6 +10,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 const cron = require("node-cron");
 
+const PORT = process.env.PORT || 8080;
+
 // var upload = multer({ dest: "Upload_folder_name" })
 // If you do not want to use diskStorage then uncomment it
 app.use(express.static(path.join(__dirname, "uploads")));
@@ -151,7 +153,7 @@ app.get("/delete", async (req, res, next) => {
 
 // Take any port number of your choice which
 // is not taken by any other process
-app.listen(8080, function (error) {
+app.listen(PORT, function (error) {
   if (error) throw error;
-  console.log("Server created Successfully on PORT 8080");
+  console.log("Server created Successfully on PORT" + PORT);
 });
