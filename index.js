@@ -56,7 +56,7 @@ cron.schedule("*/5 * * * *", async () => {
     // }, frequency);
   });
   var fetch_res = await fetch(
-    `https://birthday-calculator-backend.onrender.com`
+    `https://kurta-backend.onrender.com/`
   );
   var fetch_data = await fetch_res.json();
   console.log("fetch_data", fetch_data);
