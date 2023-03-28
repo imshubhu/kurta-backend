@@ -98,13 +98,11 @@ app.get("/", function (req, res) {
 
 app.post(
   "/uploadProfilePicture",
-  upload.array("image"),
   async function (req, res, next) {
-    console.log("req.files", req.files);
 
     try {
       const uploading = await uploadModel.create({
-        images: req.files,
+        images: req.body.imageArray,
         title: req.body.title,
       });
 
